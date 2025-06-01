@@ -98,11 +98,16 @@ body {
 .second-row {
     max-width: 40vw;
     padding: 10px;
+    padding-bottom: 20px;
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
         gap: 10px;
+
+        li {
+            margin: 10px 0;
+        }
     }
 }
 
@@ -130,7 +135,7 @@ a {
     min-height: 50px;
 
     div,
-    a {
+    div a {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -150,7 +155,7 @@ a {
         height: 50px;
     }
 
-    a:hover {
+    div a:hover {
         transform: scale(1.1);
     }
 }
@@ -164,12 +169,12 @@ canvas {
 }
 
 #nowplaying {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 1px;
+    gap: 0.75px;
 
 
         span {
@@ -185,12 +190,12 @@ canvas {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.1);
+        transform: scale(1.15);
     }
 }
 
 #musicprompt {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 75vw;
