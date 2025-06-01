@@ -190,7 +190,7 @@ canvas {
         transform: scale(1);
     }
     50% {
-        transform: scale(1.15);
+        transform: scale(1.1);
     }
 }
 
@@ -207,12 +207,12 @@ canvas {
     justify-content: center;
     align-items: center;
     border-radius: 50px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    font-size: 300%;
+    box-shadow: 0 0 20px rgba($primary-color, 0.75);
+    font-size: 500%;
     flex-direction: column;
 
     small {
-        font-size: 25%;
+        font-size: 15%;
     }
 }
 
