@@ -3,13 +3,13 @@ $primary-color: #2e2e2e;
 $text-color: #eeeeee;
 $accent-color: #149CEA;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap');
 
 body {
     background-color: $background-color;
     color: $text-color;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 150%;
@@ -25,31 +25,48 @@ body {
 }
 
 .container {
-    background-color: rgba($primary-color, 0.1);
-    backdrop-filter: blur(5px);
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 0.25) 0px,
+            rgba(255, 255, 255, 0) 5px,
+            rgba($primary-color, 0.5) 5px,
+            rgba($primary-color, 0.1) 100%);
+    backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 10px;
-    margin: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 0 10px 20px 10px;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+    transition-duration: 1s;
+    padding: 20px;
+
+    &:hover {
+        box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.6), 0 6px 12px -4px rgba(0, 0, 0, 0.4);
+    }
 }
 
 #name {
-    font-family: 'Turret Road', monospace;
+    font-family: 'Turret Road', "Open Sans", sans-serif;
     font-size: 2.5em;
     color: $accent-color;
     font-weight: 800;
     text-align: center;
     margin: 20px 0;
 }
+
 .i-header {
+    padding: 0 10px;
     flex-direction: row;
     justify-content: center;
     color: $accent-color;
     text-align: center;
     height: 75px;
     line-height: 60px;
+    background: linear-gradient(to bottom,
+            rgba($primary-color, 0.5) 0,
+            rgba($primary-color, 0.1) 100%);
+
+            border-radius: 0 0 10px 10px;
 
     h1 {
         animation: glow 5s infinite ease-in-out;
@@ -63,7 +80,7 @@ body {
 
 @keyframes glow {
     0% {
-        text-shadow: 0 0 0px $accent-color;
+        text-shadow: 0 0 5px $accent-color;
     }
 
     50% {
@@ -71,7 +88,7 @@ body {
     }
 
     100% {
-        text-shadow: 0 0 0px $accent-color;
+        text-shadow: 0 0 5px $accent-color;
     }
 }
 
@@ -97,13 +114,19 @@ body {
 
 .second-row {
     max-width: 40vw;
-    padding: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
+    padding-top: 10px;
+
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
         gap: 10px;
+
+        h1,h2,h3,h4,h5,h6 {
+            margin: -5px 0;
+            padding: 0;
+        }
 
         li {
             margin: 10px 0;
@@ -161,11 +184,11 @@ a {
 }
 
 canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: -1;
 }
 
 #nowplaying {
@@ -177,18 +200,21 @@ canvas {
     gap: 0.75px;
 
 
-        span {
-            display: inline-block;
-            animation: bounce 1s infinite;
-            animation-delay: calc(var(--i) * 0.1s);
-        }
+    span {
+        display: inline-block;
+        animation: bounce 1s infinite;
+        animation-delay: calc(var(--i) * 0.1s);
+    }
 
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
@@ -210,9 +236,11 @@ canvas {
     box-shadow: 0 0 20px rgba($primary-color, 0.75);
     font-size: 500%;
     flex-direction: column;
+    font-family: "Turret Road", "Open Sans", sans-serif;
 
     small {
         font-size: 15%;
+        font-family: "Open Sans", sans-serif;
     }
 }
 
@@ -241,4 +269,15 @@ canvas {
 * {
     scrollbar-width: thin;
     scrollbar-color: $accent-color $primary-color;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Turret Road', monospace;
+    font-weight: 800;
+    text-shadow: 0 0 10px $text-color;
 }

@@ -102,31 +102,41 @@ function draw() {
     const highsOffset = 0.05;
 
     // Calculate parallax positions
-    const bassX = centerX + (mouseX - centerX) * bassOffset;
-    const bassY = centerY + (mouseY - centerY) * bassOffset;
-    const midsX = centerX + (mouseX - centerX) * midsOffset;
-    const midsY = centerY + (mouseY - centerY) * midsOffset;
-    const highsX = centerX + (mouseX - centerX) * highsOffset;
-    const highsY = centerY + (mouseY - centerY) * highsOffset;
+    // Add slight randomness to each circle's position
+    const randomRange = (amount) => (Math.random() - 0.5) * amount;
 
-    // Redraw circles at parallax positions
+    const bassX = centerX + (mouseX - centerX) * bassOffset + randomRange(10);
+    const bassY = centerY + (mouseY - centerY) * bassOffset + randomRange(10);
+    const midsX = centerX + (mouseX - centerX) * midsOffset + randomRange(15);
+    const midsY = centerY + (mouseY - centerY) * midsOffset + randomRange(15);
+    const highsX = centerX + (mouseX - centerX) * highsOffset + randomRange(20);
+    const highsY = centerY + (mouseY - centerY) * highsOffset + randomRange(20);
+    // Save current context state
+    ctx.save();
+
+    // Apply blur filter for soft edges
+    ctx.filter = 'blur(10px)';
+
     // Bass circle
     ctx.beginPath();
     ctx.arc(bassX, bassY, bassRadius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${bass / 10}, 50, 100, 0.4)`;
+    ctx.fillStyle = `rgba(${bass / 20}, 50, 100, 0.4)`;
     ctx.fill();
 
     // Mids circle
     ctx.beginPath();
     ctx.arc(midsX, midsY, midsRadius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${mids / 10}, 50, 100, 0.3)`;
+    ctx.fillStyle = `rgba(${mids / 10}, 75, 100, 0.3)`;
     ctx.fill();
 
     // Highs circle
     ctx.beginPath();
     ctx.arc(highsX, highsY, highsRadius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${highs / 10}, 50, 100, 0.2)`;
+    ctx.fillStyle = `rgba(${highs / 5}, 50, 75, 0.2)`;
     ctx.fill();
+
+    // Restore context state to remove blur for other drawing
+    ctx.restore();
 }
 
 draw();
@@ -144,4 +154,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-window.addEventListener('click', () => {document.getElementById('musicprompt').remove();});
+window.addEventListener('click', function handler() {
+    document.getElementById('musicprompt').remove();
+    window.removeEventListener('click', handler);
+});

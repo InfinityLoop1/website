@@ -1,7 +1,7 @@
 {
   "particles": {
     "number": {
-      "value": 100,
+      "value": 500,
       "density": {
         "enable": true,
         "value_area": 800
@@ -26,17 +26,17 @@
       }
     },
     "opacity": {
-      "value": 1,
-      "random": false,
+      "value": 0.5,
+      "random": true,
       "anim": {
-        "enable": true,
+        "enable": false,
         "speed": 0.25136154168412256,
         "opacity_min": 0.1,
         "sync": false
       }
     },
     "size": {
-      "value": 4,
+      "value": 2,
       "random": true,
       "anim": {
         "enable": false,
@@ -75,7 +75,7 @@
         "mode": "grab"
       },
       "onclick": {
-        "enable": true,
+        "enable": false,
         "mode": "push"
       },
       "resize": true
