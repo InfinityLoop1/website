@@ -1,121 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <!-- Meta  -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="InfinityLoop - Frontend web developer, Unity game designer, and electronic music producer." />
+        <meta name="author" content="InfinityLoop" />
+        <meta name="keywords" content="InfinityLoop, web developer, Unity, game designer, music producer, portfolio" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="theme-color" content="#149CEA" />
+        <meta property="og:title" content="InfinityLoop" />
+        <meta property="og:description" content="Frontend web developer, Unity game designer, and electronic music producer." />
+        <meta property="og:image" content="/assets/images/infinity.svg" />
+        <meta property="og:type" content="website" />
+        <!-- End Meta -->
+        <!-- Favicons -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png" />
+        <link rel="manifest" href="/assets/favicons/site.webmanifest" />
+        <!-- End Favicons-->
 
-<head>
-    <!-- Meta  -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="InfinityLoop - Frontend web developer, Unity game designer, and electronic music producer.">
-    <meta name="author" content="InfinityLoop">
-    <meta name="keywords" content="InfinityLoop, web developer, Unity, game designer, music producer, portfolio">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="theme-color" content="#149CEA">
-    <meta property="og:title" content="InfinityLoop">
-    <meta property="og:description"
-        content="Frontend web developer, Unity game designer, and electronic music producer.">
-    <meta property="og:image" content="/assets/images/infinity.svg">
-    <meta property="og:type" content="website">
-    <!-- End Meta -->
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicons/site.webmanifest">
-    <!-- End Favicons-->
+        <title>InfinityLoop</title>
+        <link rel="stylesheet" href="/assets/styles/css/index.css" />
+        <link rel="stylesheet" href="/assets/styles/css/global.css" />
+    </head>
 
-    <title>InfinityLoop</title>
-    <link rel="stylesheet" href="/assets/styles/css/index.css">
+    <body>
+        <div id="particles-js"></div>
 
-</head>
+        <canvas id="visualizer"></canvas>
+        <audio id="music" src="/assets/Helium_Extended.mp3" autoplay loop></audio>
 
-<body>
-    <div id="particles-js"></div>
-
-    <canvas id="visualizer"></canvas>
-    <audio id="music" src="/assets/Helium_Extended.mp3" autoplay loop></audio>
-
-
-    <script src="/assets/resources/particles/script.js"></script>
-    <div class="i-header container">
-        <img src="/assets/images/infinity.svg" alt="InfinityLoop Logo" class="logo">
-        <h1 id="name">InfinityLoop</h1>
-    </div>
-    <div class="flex-holder">
-        <div class="container second-row">
-            <h2>About</h2>
-            <div class="icon-container">
-                <div><img src="/assets/images/icons/male.png" alt="male icon">Male</div>
-                <div><img src="/assets/images/icons/14.png" alt="14 years old icon">14 Yrs</div>
-                <div><img src="/assets/images/icons/straight.png" alt="straight icon">Straight</div>
-                <div><img src="/assets/images/icons/usa.png" alt="United States icon">USA</div>
-
-            </div>
-            <p>I'm InfinityLoop, a frontend web developer, Unity game designer, and electronic music producer.</p>
-            <h3>Skills and Tools</h3>
-            <div class="icon-container">
-                <img src="/assets/images/icons/tools/Arduino.svg" alt="Arduino icon">
-                <img src="/assets/images/icons/tools/Blender.svg" alt="Blender icon">
-                <img src="/assets/images/icons/tools/CS.svg" alt="C# icon">
-                <img src="/assets/images/icons/tools/CSS.svg" alt="CSS icon">
-                <img src="/assets/images/icons/tools/Git.svg" alt="Git icon">
-                <img src="/assets/images/icons/tools/HTML.svg" alt="HTML icon">
-                <img src="/assets/images/icons/tools/JavaScript.svg" alt="JavaScript icon">
-                <img src="/assets/images/icons/tools/Python.svg" alt="Python icon">
-                <img src="/assets/images/icons/tools/RaspberryPi.svg" alt="Pi icon">
-                <img src="/assets/images/icons/tools/Sass.svg" alt="Sass icon">
-                <img src="/assets/images/icons/tools/Unity.svg" alt="Unity icon">
-                <img src="/assets/images/icons/tools/VisualStudio.svg" alt="Visual Studio icon">
-                <img src="/assets/images/icons/tools/VSCode.svg" alt="Visual Studio Code icon">
-            </div>
-            <br>
-            <h3>Socials</h3>
-            <div class="icon-container">
-                <div><a href="https://discord.com/users/1184305500062502996" target="_blank"><img
-                            src="/assets/images/icons/socials/discord.png" alt="Discord Link"></a>Discord</div>
-                <div><a href="https://github.com/InfinityLoop1" target="_blank"><img
-                            src="/assets/images/icons/socials/github.png" alt="GitHub Link"></a>GitHub</div>
-                <div><a href="https://github.com/InfinityLoop5" target="_blank"><img
-                            src="/assets/images/icons/socials/gitlab.png" alt="GitLab Link"></a>GitLab</div>
-                <div><a href="https://open.spotify.com/artist/6AD2E3l8Az67OnlbsWG5Fb" target="_blank"><img
-                            src="/assets/images/icons/socials/spotify.png" alt="Spotify Link"></a>Spotify</div>
-
-            </div>
-
+        <script src="/assets/resources/particles/script.js"></script>
+        <div class="i-header container">
+            <img src="/assets/images/infinity.svg" alt="InfinityLoop Logo" class="logo" />
+            <h1 id="name">InfinityLoop</h1>
         </div>
-        <div class="container second-row">
-            <h2>Projects</h2>
-            <ul>
-                <h2>Coding</h2>
-                <h3>Websites</h3>
-                <li><a href="https://lupinevault.com" target="_blank">LupineVault</a> - <strong>Co-owner</strong> -
-                    Organization focused on circumventing school blocks - <strong>Active</strong></li>
-                <li><a href="https://lupine.red" target="_blank">RED by LupineVault</a> - <strong>Developer</strong> -
-                    All-in-one unblocking website for school - <strong>Active</strong></li>
-                    <li><a href="https://github.com/InfinityLoop1/homework-tracker" target="_blank">Homework Tracker</a> - Simple to-do list type tracker for homework - <strong>Active</strong>
-                </li>
-                <h3>Games</h3>
-                
-                <li><a href="https://github.com/InfinityLoop1/Infinity-Clicker" target="_blank">Infinity Clicker</a> - Basic HTML/JS clicker - <strong>Inactive</strong>
-                </li>
-                <h2>Other</h2>
-                
-                <li><a href="https://open.spotify.com/artist/6AD2E3l8Az67OnlbsWG5Fb" target="_blank">Half of
-                        Infinity</a> -
-                    Electronic music composition and production - <strong>Active</strong></li>
-            </ul>
-        </div>
-        <div class="container second-row">
-            <h2>idk what to put here rn</h2>
+        <div class="flex-holder">
+            <div class="container second-row">
+                <h2>About</h2>
+                <div class="icon-container">
+                    <img src="/assets/images/icons/male.png" alt="Male" />
+                    <img src="/assets/images/icons/14.png" alt="14 years old" />
+                    <img src="/assets/images/icons/straight.png" alt="Straight" />
+                    <img src="/assets/images/icons/usa.png" alt="United States" />
+                </div>
+                <p>I'm InfinityLoop, a frontend web developer, Unity game designer, and electronic music producer.</p>
+                <h3>Skills and Tools</h3>
+                <div class="icon-container">
+                    <img src="/assets/images/icons/tools/Arduino.svg" alt="Arduino" />
+                    <img src="/assets/images/icons/tools/Blender.svg" alt="Blender" />
+                    <img src="/assets/images/icons/tools/CS.svg" alt="C#" />
+                    <img src="/assets/images/icons/tools/CSS.svg" alt="CSS" />
+                    <img src="/assets/images/icons/tools/Git.svg" alt="Git" />
+                    <img src="/assets/images/icons/tools/HTML.svg" alt="HTML" />
+                    <img src="/assets/images/icons/tools/JavaScript.svg" alt="JavaScript" />
+                    <img src="/assets/images/icons/tools/Python.svg" alt="Python" />
+                    <img src="/assets/images/icons/tools/RaspberryPi.svg" alt="Pi" />
+                    <img src="/assets/images/icons/tools/Sass.svg" alt="Sass" />
+                    <img src="/assets/images/icons/tools/Unity.svg" alt="Unity" />
+                    <img src="/assets/images/icons/tools/VisualStudio.svg" alt="Visual Studio" />
+                    <img src="/assets/images/icons/tools/VSCode.svg" alt="Visual Studio Code" />
+                </div>
+                <br />
+                <h3>Socials</h3>
+                <div class="icon-container">
+                    <a href="https://discord.com/users/1184305500062502996" target="_blank"><img src="/assets/images/icons/socials/discord.png" alt="Discord Link" /></a>
+                    <a href="https://github.com/InfinityLoop1" target="_blank"><img src="/assets/images/icons/socials/github.png" alt="GitHub Link" /></a>
+                    <a href="https://github.com/InfinityLoop5" target="_blank"><img src="/assets/images/icons/socials/gitlab.png" alt="GitLab Link" /></a>
+                    <a href="https://open.spotify.com/artist/6AD2E3l8Az67OnlbsWG5Fb" target="_blank"><img src="/assets/images/icons/socials/spotify.png" alt="Spotify Link" /></a>
+                </div>
+            </div>
+            <div class="container second-row">
+                <h2>Projects</h2>
+                <ul>
+                    <h2>Coding</h2>
+                    <h3>Websites</h3>
+                    <li><a href="https://lupinevault.com" target="_blank">LupineVault</a> - <strong>Co-owner</strong> - Organization focused on circumventing school blocks - <strong>Active</strong></li>
+                    <li><a href="https://lupine.red" target="_blank">RED by LupineVault</a> - <strong>Developer</strong> - All-in-one unblocking website for school - <strong>Active</strong></li>
+                    <li><a href="https://github.com/InfinityLoop1/homework-tracker" target="_blank">Homework Tracker</a> - Simple to-do list type tracker for homework - <strong>Active</strong></li>
+                    <h3>Games</h3>
 
-        </div>
-    </div>
-    <small id="nowplaying">Now Playing: Helium (Extended) by Half of Infinity</small>
-    <div id="musicprompt">
-        <p>Click anywhere to enter</p>
-        <small>Required due to audio start permissions :(</small>
-    </div>
-    <script src="/assets/js/index.js"></script>
-</body>
+                    <li><a href="https://github.com/InfinityLoop1/Infinity-Clicker" target="_blank">Infinity Clicker</a> - Basic HTML/JS clicker - <strong>Inactive</strong></li>
+                    <h2>Other</h2>
 
+                    <li><a href="https://open.spotify.com/artist/6AD2E3l8Az67OnlbsWG5Fb" target="_blank">Half of Infinity</a> - Electronic music composition and production - <strong>Active</strong></li>
+                </ul>
+            </div>
+            <div class="container second-row">
+                <h2>idk what to put here rn</h2>
+            </div>
+        </div>
+        <small id="nowplaying">Now Playing: Helium (Extended) by Half of Infinity</small>
+        <div id="musicprompt">
+            <p>Click anywhere to enter</p>
+            <small>Required due to audio start permissions :(</small>
+        </div>
+        <script src="/assets/js/index.js"></script>
+        <script src="/assets/js/global.js"></script>
+    </body>
 </html>

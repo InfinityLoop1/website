@@ -8,4 +8,9 @@
         }
     ],
     "liveSassCompile.settings.generateMap": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "files.autoSave": "onFocusChange",
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
