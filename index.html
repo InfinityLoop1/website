@@ -27,12 +27,11 @@
     </head>
 
     <body>
-        <div id="particles-js"></div>
+        <div id="fog"></div>
 
         <canvas id="visualizer"></canvas>
         <audio id="music" src="/assets/Helium_Extended.mp3" autoplay loop></audio>
 
-        <script src="/assets/resources/particles/script.js"></script>
         <div class="i-header container">
             <img src="/assets/images/infinity.svg" alt="InfinityLoop Logo" class="logo" />
             <h1 id="name">InfinityLoop</h1>
@@ -90,6 +89,17 @@
             </div>
             <div class="container second-row">
                 <h2>idk what to put here rn</h2>
+                <div id="discord-activity-container">
+                    <h3>Discord Activity</h3>
+                    <div id="discord-activity-content">
+                        <img id="discord-pfp" class="avatar-image" />
+                        <div id="discord-activity-text-container">
+                            <p id="discord-username-text">Loading...</p>
+                            <small id="discord-status-text">Loading...</small>
+                            <p id="discord-activity-text">Loading...</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <small id="nowplaying">Now Playing: Helium (Extended) by Half of Infinity</small>
@@ -99,5 +109,25 @@
         </div>
         <script src="/assets/js/index.js"></script>
         <script src="/assets/js/global.js"></script>
+        <script src="/assets/js/discord.js"></script>
+        <script src="/assets/resources/vanta/three.js"></script>
+        <script src="/assets/resources/vanta/fog.js"></script>
+        <script>
+            VANTA.FOG({
+                el: "#fog",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.0,
+                minWidth: 200.0,
+                highlightColor: 0x1c2c,
+                midtoneColor: 0x1129,
+                lowlightColor: 0x1f,
+                baseColor: 0xe,
+                blurFactor: 0.7,
+                speed: 0.7,
+                zoom: 3.0,
+            });
+        </script>
     </body>
 </html>

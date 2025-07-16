@@ -1,1 +1,1 @@
-.tooltip{position:fixed;pointer-events:none;background:rgba(0,0,0,.8);color:#fff;padding:6px 10px;border-radius:4px;font-size:14px;z-index:9999;display:none}
+.tooltip{position:fixed;pointer-events:none;background:rgba(0,0,0,.8);color:#fff;padding:6px 10px;border-radius:4px;font-size:14px;z-index:9999;display:none}#fog{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2}

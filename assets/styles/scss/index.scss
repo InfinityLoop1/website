@@ -1,15 +1,15 @@
 $background-color: #1f1f1f;
 $primary-color: #2e2e2e;
 $text-color: #eeeeee;
-$accent-color: #149CEA;
+$accent-color: #149cea;
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap");
 
 body {
     background-color: $background-color;
     color: $text-color;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     line-height: 150%;
@@ -25,11 +25,7 @@ body {
 }
 
 .container {
-    background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0.25) 0px,
-            rgba(255, 255, 255, 0) 5px,
-            rgba($primary-color, 0.5) 5px,
-            rgba($primary-color, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0px, rgba($primary-color, 0.5) 3px, rgba($primary-color, 0.1) 100%);
     backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
@@ -46,27 +42,25 @@ body {
 }
 
 #name {
-    font-family: 'Turret Road', "Open Sans", sans-serif;
+    font-family: "Turret Road", "Open Sans", sans-serif;
     font-size: 2.5em;
     color: $accent-color;
     font-weight: 800;
     text-align: center;
-    margin: 20px 0;
 }
 
 .i-header {
     padding: 0 10px;
     flex-direction: row;
     justify-content: center;
+    gap: 20px;
     color: $accent-color;
     text-align: center;
     height: 75px;
     line-height: 60px;
-    background: linear-gradient(to bottom,
-            rgba($primary-color, 0.5) 0,
-            rgba($primary-color, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba($primary-color, 0.5) 0, rgba($primary-color, 0.1) 100%);
 
-            border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 
     h1 {
         animation: glow 5s infinite ease-in-out;
@@ -123,7 +117,12 @@ body {
         margin: 0;
         gap: 10px;
 
-        h1,h2,h3,h4,h5,h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             margin: -5px 0;
             padding: 0;
         }
@@ -139,7 +138,6 @@ a {
     text-decoration: underline;
     color: $accent-color;
     text-underline-offset: 2px;
-
 
     &:hover {
         color: $text-color;
@@ -199,17 +197,14 @@ canvas {
     display: flex;
     gap: 0.75px;
 
-
     span {
         display: inline-block;
         animation: bounce 1s infinite;
         animation-delay: calc(var(--i) * 0.1s);
     }
-
 }
 
 @keyframes bounce {
-
     0%,
     100% {
         transform: scale(1);
@@ -277,7 +272,67 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Turret Road', monospace;
+    font-family: "Turret Road", monospace;
     font-weight: 800;
     text-shadow: 0 0 10px $text-color;
+}
+
+.avatar-image.status-online {
+    border-color: #43b581;
+}
+.avatar-image.status-idle {
+    border-color: #faa61a;
+}
+.avatar-image.status-dnd {
+    border-color: #f04747;
+}
+.avatar-image.status-offline {
+    border-color: #747f8d;
+}
+
+.status-online {
+    background-color: #43b581;
+}
+.status-idle {
+    background-color: #faa61a;
+}
+.status-dnd {
+    background-color: #f04747;
+}
+.status-offline {
+    background-color: #747f8d;
+}
+
+#discord-pfp {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 3px solid transparent;
+}
+
+#discord-activity-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba($primary-color, 0.8);
+    border-radius: 20px;
+    min-width: 90%;
+
+    #discord-activity-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        gap: 10px;
+        width: 100%;
+        
+        #discord-activity-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            line-height: 0.5;
+        }
+    }
 }
