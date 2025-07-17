@@ -95,13 +95,13 @@ function updateActivity(userData) {
                 let activityString = '';
                 switch (activity.type) {
                     case 0:
-                        if (activity.name === "Code") {
-                            activityString = "Using Visual Studio Code";
+                        if (activity.name === "Visual Studio Code") {
+                            activityString = `Using Visual Studio Code (${activity.details}: ${activity.state})`;
                         } else {
                             activityString = `Playing ${activity.name}`;
-                            
+                            if (activity.details) activityString += `: ${activity.details}`;
                         }   
-                        if (activity.details) activityString += `: ${activity.details}`;
+                        
                         break;
                     case 1:
                         activityString = `Streaming ${activity.name}`;
