@@ -174,18 +174,31 @@ canvas {
     z-index: -1;
 }
 
-#nowplaying {
+#musiccontrols {
     position: fixed;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 0.75px;
+    gap: 10px;
 
-    span {
-        display: inline-block;
-        animation: bounce 1s infinite;
-        animation-delay: calc(var(--i) * 0.1s);
+    #nowplaying {
+        display: flex;
+        gap: 0.75px;
+        span {
+            display: inline-block;
+            animation: bounce 1s infinite;
+            animation-delay: calc(var(--i) * 0.1s);
+        }
+    }
+
+    #mutecontrol {
+        cursor: pointer;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $accent-color;
+        }
     }
 }
 
@@ -313,7 +326,7 @@ h6 {
         justify-content: left;
         gap: 10px;
         width: 100%;
-        
+
         #discord-activity-text-container {
             display: flex;
             flex-direction: column;

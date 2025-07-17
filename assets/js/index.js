@@ -158,3 +158,17 @@ window.addEventListener('click', function handler() {
     document.getElementById('musicprompt').remove();
     window.removeEventListener('click', handler);
 });
+
+document.getElementById('mutecontrol').addEventListener('click', () => {
+    if (audio.muted) {
+        audio.muted = false;
+        document.getElementById('mutecontrol').classList.add('fa-volume-high');
+        document.getElementById('mutecontrol').classList.remove('fa-volume-mute');
+        canvas.style.display = 'block';
+    } else {
+        audio.muted = true;
+        document.getElementById('mutecontrol').classList.add('fa-volume-mute');
+        document.getElementById('mutecontrol').classList.remove('fa-volume-high');
+        canvas.style.display = 'none';
+    }
+});
