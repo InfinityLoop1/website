@@ -240,3 +240,59 @@ window.addEventListener('scroll', () => {
     canvas.style.transform = `scale(${zoom})`;
     canvas.style.transformOrigin = 'center center';
 });
+
+function timeAgoIntl(date) {
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+  const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+
+  const intervals = [
+    { label: 'year', seconds: 31536000 },
+    { label: 'month', seconds: 2592000 },
+    { label: 'day', seconds: 86400 },
+    { label: 'hour', seconds: 3600 },
+    { label: 'minute', seconds: 60 },
+  ];
+
+  for (const interval of intervals) {
+    const count = Math.floor(seconds / interval.seconds);
+    if (count >= 1) {
+      return rtf.format(-count, interval.label);
+    }
+  }
+  return rtf.format(0, 'second');
+}
+
+
+let lastFetchTime = Date.now();
+
+function updateStatus() {
+  fetch("https://status-worker.enzopassini.workers.dev/status")
+    .then(res => res.json())
+    .then(data => {
+      lastFetchTime = Date.now();
+
+      document.getElementById("statusText").innerHTML = `
+        I am currently <b>${data.status}</b> 
+        <small id="lastUpdate" style="color: gray;">
+          (last changed ${timeAgoIntl(new Date(data.updatedAt))})
+        </small>
+        <small id="updateCounter" style="color: gray;">(fetching...)</small> 
+        
+      `;
+    })
+    .catch(() => {
+      document.getElementById("statusText").textContent = "Failed to fetch status.";
+    });
+}
+
+function updateCounter() {
+  const updateCounterElem = document.getElementById("updateCounter");
+  if (updateCounterElem) {
+    const seconds = Math.floor((Date.now() - lastFetchTime) / 1000);
+    updateCounterElem.textContent = `(fetched ${seconds}s ago)`;
+  }
+}
+
+updateStatus();
+setInterval(updateStatus, 30000);
+setInterval(updateCounter, 1000);

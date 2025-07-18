@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Status Dashboard</title>
+  <link rel="stylesheet" href="/assets/styles/css/global.css">
+  
+</head>
+<body>
+    <div id="fog"></div>
+    <div class="i-header container">
+            <h1>Status Dashboard</h1>
+        </div>
+  
+  <div class="container" style="align-items: center;">
+  <form id="statusForm" style="text-align: center;">
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+    <label for="status">New Status:</label>
+    <input type="text" id="status" name="status" required>
+    </div><br>
+    <div style="display: flex; flex-direction: row; gap: 10px;">
+    <label for="key">Passkey:</label>
+    <input type="password" id="key" name="key" required>
+</div><br>
+    <button type="submit">Update Status</button>
+  </form>
+
+  <p id="responseMsg"></p>
+  </div>
+
+  <script src="/assets/js/dashboard.js"></script>
+
+  <script src="/assets/resources/vanta/three.js"></script>
+        <script src="/assets/resources/vanta/fog.js"></script>
+        <script>
+            VANTA.FOG({
+                el: "#fog",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.0,
+                minWidth: 200.0,
+                highlightColor: 0x1c2c,
+                midtoneColor: 0x1129,
+                lowlightColor: 0x1f,
+                baseColor: 0xe,
+                blurFactor: 0.7,
+                speed: 0.7,
+                zoom: 3.0,
+            });
+        </script>
+</body>
+</html>
