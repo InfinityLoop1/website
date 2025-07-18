@@ -137,7 +137,43 @@ function draw() {
 
     // Restore context state to remove blur for other drawing
     ctx.restore();
+    drawFrequencyBars();
+
 }
+
+function drawFrequencyBars() {
+    const barCount = 1024; // desired number of visual bars
+    const half = barCount / 2;
+    const barWidth = canvas.width / barCount;
+
+    const scale = bufferLength / half; // how much data we have per half of bars
+
+    for (let i = 0; i < half; i++) {
+        const reversedIndex = (half - 1) - i;
+        const dataIndex = reversedIndex * scale;
+
+        // Interpolate between two bins if needed
+        const lower = Math.floor(dataIndex);
+        const upper = Math.ceil(dataIndex);
+        const t = dataIndex - lower;
+        const value = (1 - t) * dataArray[lower] + t * dataArray[upper];
+
+        const barHeight = value * 1.5;
+        const color = `#149cea10`;
+
+        // Left bar
+        const xLeft = canvas.width / 2 - (i + 1) * barWidth;
+        ctx.fillStyle = color;
+        ctx.fillRect(xLeft, canvas.height - barHeight, barWidth, barHeight);
+
+        // Right bar
+        const xRight = canvas.width / 2 + i * barWidth;
+        ctx.fillStyle = color;
+        ctx.fillRect(xRight, canvas.height - barHeight, barWidth, barHeight);
+    }
+}
+
+
 
 draw();
 
