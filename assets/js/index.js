@@ -1,4 +1,4 @@
-//me when vibe coding im sorry idk how to work with audio
+
 
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
@@ -13,14 +13,14 @@ const analyser = audioCtx.createAnalyser();
 
 source.connect(analyser);
 analyser.connect(audioCtx.destination);
-analyser.fftSize = 1024; // higher resolution
+analyser.fftSize = 1024;
 
-const bufferLength = analyser.frequencyBinCount; // fftSize/2
+const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 
-// Calculate frequency per bin:
-const sampleRate = audioCtx.sampleRate; // usually 44100
-const freqPerBin = sampleRate / analyser.fftSize; // e.g. 44100/1024 ≈ 43Hz per bin
+
+const sampleRate = audioCtx.sampleRate;
+const freqPerBin = sampleRate / analyser.fftSize;
 
 const bassStartBin = Math.floor(10 / freqPerBin);
 const bassEndBin = Math.ceil(100 / freqPerBin);
@@ -74,9 +74,9 @@ let mouseX = window.innerWidth / 2;
 let mouseY = window.innerHeight / 2;
 
 window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
 
 function draw() {
     requestAnimationFrame(draw);
@@ -94,15 +94,12 @@ function draw() {
     const midsRadius = 100 + mids;
     const highsRadius = 160 + highs;
 
-    // Parallax offsets (increased for more visible movement)
-    // If mouse is outside canvas, keep last known position, but also listen to window mousemove
-    
     const bassOffset = 0;
     const midsOffset = 0.025;
     const highsOffset = 0.05;
 
-    // Calculate parallax positions
-    // Add slight randomness to each circle's position
+
+
     const randomRange = (amount) => (Math.random() - 0.5) * amount;
 
     const bassX = centerX + (mouseX - centerX) * bassOffset + randomRange(10);
@@ -111,48 +108,51 @@ function draw() {
     const midsY = centerY + (mouseY - centerY) * midsOffset + randomRange(15);
     const highsX = centerX + (mouseX - centerX) * highsOffset + randomRange(20);
     const highsY = centerY + (mouseY - centerY) * highsOffset + randomRange(20);
-    // Save current context state
+
     ctx.save();
 
-    // Apply blur filter for soft edges
+
     ctx.filter = 'blur(10px)';
 
-    // Bass circle
+
     ctx.beginPath();
     ctx.arc(bassX, bassY, bassRadius, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${bass / 20}, 50, 100, 0.4)`;
     ctx.fill();
 
-    // Mids circle
+
     ctx.beginPath();
     ctx.arc(midsX, midsY, midsRadius, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${mids / 10}, 75, 100, 0.3)`;
     ctx.fill();
 
-    // Highs circle
+
     ctx.beginPath();
     ctx.arc(highsX, highsY, highsRadius, 0, Math.PI * 2);
     ctx.fillStyle = `rgba(${highs / 5}, 50, 75, 0.2)`;
     ctx.fill();
 
-    // Restore context state to remove blur for other drawing
+
     ctx.restore();
     drawFrequencyBars();
 
+    
+
 }
 
+
 function drawFrequencyBars() {
-    const barCount = 1024; // desired number of visual bars
+    const barCount = 1024;
     const half = barCount / 2;
     const barWidth = canvas.width / barCount;
 
-    const scale = bufferLength / half; // how much data we have per half of bars
+    const scale = bufferLength / half;
 
     for (let i = 0; i < half; i++) {
         const reversedIndex = (half - 1) - i;
         const dataIndex = reversedIndex * scale;
 
-        // Interpolate between two bins if needed
+
         const lower = Math.floor(dataIndex);
         const upper = Math.ceil(dataIndex);
         const t = dataIndex - lower;
@@ -161,23 +161,21 @@ function drawFrequencyBars() {
         const barHeight = value * 1.5;
         const color = `#149cea10`;
 
-        // Left bar
         const xLeft = canvas.width / 2 - (i + 1) * barWidth;
         ctx.fillStyle = color;
-        ctx.fillRect(xLeft, canvas.height - barHeight, barWidth, barHeight);
-
-        // Right bar
+        ctx.fillRect(xLeft, 0, barWidth, barHeight);
         const xRight = canvas.width / 2 + i * barWidth;
         ctx.fillStyle = color;
-        ctx.fillRect(xRight, canvas.height - barHeight, barWidth, barHeight);
+        ctx.fillRect(xRight, 0, barWidth, barHeight);
     }
 }
 
 
 
+
 draw();
 
-//im sorry no more vibe coding
+
 
 window.addEventListener('DOMContentLoaded', () => {
     const text = document.getElementById('nowplaying').textContent;
@@ -207,4 +205,38 @@ document.getElementById('mutecontrol').addEventListener('click', () => {
         document.getElementById('mutecontrol').classList.remove('fa-volume-high');
         canvas.style.display = 'none';
     }
+});
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 0) {
+        document.querySelector('.i-header').style.height = '50px';
+        document.querySelector('.i-header').style.fontSize = 'calc(50px * 0.25)';
+    } else {
+        document.querySelector('.i-header').style.height = '75px';
+        document.querySelector('.i-header').style.fontSize = 'calc(75px * 0.25)';
+    }
+});
+
+let isScrolling = false;
+let scrollTimeout;
+
+window.addEventListener('scroll', () => {
+    if (!isScrolling) {
+        isScrolling = true;
+        document.getElementById('musiccontrols').style.bottom = '-50px';
+    }
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        isScrolling = false;
+        document.getElementById('musiccontrols').style.bottom = '10px';
+    }, 1000);
+});
+
+window.addEventListener('scroll', () => {
+    const maxScroll = 300;
+    const opacity = 1 - window.scrollY / maxScroll;
+    canvas.style.opacity = opacity;
+    const zoom = 1 + (window.scrollY / maxScroll) * 1;
+    canvas.style.transform = `scale(${zoom})`;
+    canvas.style.transformOrigin = 'center center';
 });
