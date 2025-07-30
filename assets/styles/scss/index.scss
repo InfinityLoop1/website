@@ -212,3 +212,54 @@ canvas {
         }
     }
 }
+
+.project-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.5), 0 4px 8px -4px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgba($primary-color, 0.2);
+
+    img {
+        width: 20%;
+        border-radius: 10px;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: scale(2) translateX(25%) translateY(-25%);
+            z-index: 10;
+        }
+    }
+
+    .project-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+        padding: 10px;
+
+        h1 {
+            margin: 0;
+            font-size: 150%;
+            color: $accent-color;
+        }
+
+        p {
+            margin: 5px 0;
+            color: $text-color;
+        }
+
+    }
+    
+        button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color: $text-color;
+            padding: 10px;
+            align-self: center;
+        }
+}

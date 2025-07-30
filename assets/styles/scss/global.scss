@@ -6,6 +6,15 @@ $accent-color: #149cea;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap");
 
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
 body {
     background-color: $background-color;
     color: $text-color;
@@ -109,7 +118,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: lighten($accent-color, 10%);
+    background: adjust($accent-color, 10%);
 }
 
 ::-webkit-scrollbar-corner {
