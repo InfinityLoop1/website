@@ -264,7 +264,7 @@ function timeAgoIntl(date) {
 let lastFetchTime = Date.now();
 
 function updateStatus() {
-  fetch("https://status-worker.enzopassini.workers.dev/status")
+  fetch("https://status.api.infinityloop.me/status")
     .then(res => res.json())
     .then(data => {
       lastFetchTime = Date.now();
