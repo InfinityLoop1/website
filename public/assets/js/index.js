@@ -292,7 +292,7 @@ function updateCounter() {
 }
 
 updateStatus();
-setInterval(updateStatus, 30000);
+setInterval(updateStatus, 60000);
 setInterval(updateCounter, 1000);
 
 
