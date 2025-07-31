@@ -1,0 +1,5 @@
+name = "infinityloop"
+compatibility_date = "2025-07-31"
+
+[assets]
+directory = "./public"
