@@ -294,3 +294,15 @@ function updateCounter() {
 updateStatus();
 setInterval(updateStatus, 30000);
 setInterval(updateCounter, 1000);
+
+
+function checkFlexDirection() {
+    if (window.innerWidth < window.innerHeight) {
+        document.getElementById("second-row-top-container").style.flexDirection = "column";
+    } else {
+        document.getElementById("second-row-top-container").style.flexDirection = "row";
+    }
+}
+
+setInterval(checkFlexDirection, 500);
+checkFlexDirection();
