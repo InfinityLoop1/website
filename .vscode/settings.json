@@ -3,7 +3,7 @@
         {
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "/assets/styles/css",
+            "savePath": "/public/assets/styles/css",
             "savePathReplacementPairs": null
         }
     ],
