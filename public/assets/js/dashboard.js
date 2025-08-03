@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("statusKey", key);
 
     try {
-      const response = await fetch(`https://status-worker.enzopassini.workers.dev/status?key=${encodeURIComponent(key)}`, {
+      const response = await fetch(`https://status.api.infinityloop.me/status?key=${encodeURIComponent(key)}`, {
         method: "POST",
         body: status,
       });
